@@ -9,6 +9,8 @@
 
 ## 说明 
 
+注：github直接用overleaf打开的话，记得将compiler改为XeLaTex，直接用默认编译器可能无法编译
+
 ### 1. 字体设置 
 
 * Windows / Overleaf: 模板默认配置即可直接运行（使用 Windows 自带字体或 Fandol 字体）。
