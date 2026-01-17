@@ -1,0 +1,132 @@
+% !TeX program = xelatex
+% !TeX encoding = UTF-8
+
+%% 加载自定义类 fdse.cls
+\documentclass{fdse}
+
+%% 导入参考文献数据
+\addbibresource{reference.bib}
+
+%%---------------------------------------------------------------------
+%% 论文信息录入
+%%---------------------------------------------------------------------
+\studentID{000000}                  % 学号 
+\degreecategory{博{ }士{ }学{ }位{ }论{ }文}            % 类别: 硕士学位论文 / 博士学位论文
+\degreetype{(学术学位)}                  % 类型: (学术学位) / (专业学位) 
+\thesistitle{中文题目} % 中文题目 (<30字) 
+\englishtitle{English Title} % 英文题目
+\major{专业名}                          % 学科专业 
+\authorname{学生名}                     % 姓名
+\supervisor{某 \quad 教授}         % 指导教师
+\completedate{2026年5月20日}             % 完成日期
+
+%%---------------------------------------------------------------------
+%% 正文内容
+%%---------------------------------------------------------------------
+\begin{document}
+
+% 1. 生成封面 
+\makecover
+
+% 2. 独创性声明 (这里仅为排版，正式提交通常需替换为扫描件) 
+\thispagestyle{empty}
+\begin{center}
+    \zihao{3}\bfseries 复旦大学 \\ 学位论文独创性声明
+\end{center}
+\vspace{1em}
+\noindent 本人郑重声明：所呈交的学位论文，是本人在导师的指导下，独立进行研究工作所取得的成果...
+\clearpage
+
+% 3. 前置部分 (摘要、目录) - 页码为罗马数字 I, II... 
+\frontmatterstyle
+
+% 指导小组 (可选) 
+\chapter*{指导小组成员名单}
+\begin{center}
+    *** 教授 复旦大学经济学院 \\
+    *** 教授 复旦大学经济学院
+\end{center}
+
+% 中文摘要 
+\begin{cnabstract}{关键字1；关键字2；关键字3} % 填入关键词
+本文研究了...
+\end{cnabstract}
+
+% 英文摘要 
+% 参数1: Keywords, 参数2: JEL Classification
+\begin{enabstract}{Keyword1; Keyword2; Keyword3}{G1; G1}
+This paper investigates......
+\end{enabstract}
+
+% 目录 
+\tableofcontents
+
+% 4. 正文部分 - 页码为阿拉伯数字 1, 2... 
+\mainmatter
+
+\chapter{引言}
+\section{研究背景}
+这是正文段落，字体为小四号宋体，行距固定20磅 。
+
+参考文献引用示例：
+\begin{itemize}
+    \item 中文单一作者：\parencite{xu2010}
+    \item 英文单一作者：\parencite{barro1990}
+    \item 英文多人作者：\parencite{acemoglu2001a}
+\end{itemize}
+
+\chapter{理论模型}
+数学公式必须居中，编号右对齐，按章排序 ：
+\begin{equation}
+    Y = \alpha + \beta X + \epsilon
+    \label{eq:model}
+\end{equation}
+
+\chapter{实证结果}
+
+% 表格示例
+\begin{table}[t!]
+    \centering
+    \caption{模型估计结果}
+    \zihao{5}
+    \begin{tabular}{lccc}
+        \toprule
+         & OLS & FE & RE \\
+        \midrule
+        Log(labor) & 0.450*** & 0.096* & 0.059 \\
+        Constant   & 0.489*** & 4.86*** & 5.66*** \\
+        \bottomrule
+    \end{tabular}
+    \par\vspace{3pt}
+    \raggedright\zihao{-5} 注：*** 表示 1\% 显著水平。
+\end{table}
+
+% 图形示例 
+\begin{figure}[t!]
+    \centering
+    \fbox{\parbox{0.6\textwidth}{\centering \vspace{2cm} 图形占位 \vspace{2cm}}}
+    \par\vspace{3pt}
+    \raggedright\zihao{-5} 注：数据来源...
+    \centering
+    \caption{消费占GDP比例}
+\end{figure}
+
+\chapter{结论}
+本文结论如下...
+
+% 5. 参考文献 
+\chapter{参考文献}
+\printbibliography[check=chinese, heading=none] 
+\printbibliography[check=english, heading=none] 
+
+% 6. 附录 
+\appendix
+\chapter{数据说明}
+附录内容...
+
+% 7. 后记
+\backmatter
+\chapter{后记与致谢}
+感谢...
+
+\end{document}
